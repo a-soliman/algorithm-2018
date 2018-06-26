@@ -39,4 +39,9 @@ function isUnique2( str ) {
     return true;
 }
 
-console.log('isUnique: ', isUnique2('somethinge'));
+function isUnique3( str ) {
+    let strSet = new Set(str);
+    return true ? str.length == strSet.size(): false;
+}
+
+console.log('isUnique: ', isUnique2('something'));
