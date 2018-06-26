@@ -29,4 +29,14 @@ function isUnique( str ) {
     return true;
 }
 
-console.log('isUnique: ', isUnique('something'));
+function isUnique2( str ) {
+    let sortedString = str.split('').sort();
+    for ( let i = 0; i < sortedString.length; i++ ) {
+        if ( sortedString[i] == sortedString[i+1] ) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log('isUnique: ', isUnique2('somethinge'));
