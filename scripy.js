@@ -10,3 +10,23 @@ Output: Boolean
 
 */
 
+function isUnique( str ) {
+    let hash = {};
+    for ( let i = 0; i < str.length; i++ ) {
+        let char = str[i];
+        if ( hash[char] ) {
+            hash[char]++;
+        }else {
+            hash[char] = 1;
+        }
+    }
+
+    for (let key in hash ) {
+        if ( hash[key] > 1 ) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log('isUnique: ', isUnique('something'));
