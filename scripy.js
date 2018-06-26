@@ -88,3 +88,28 @@ function removeDupes2(str) {
 }
 
 console.log(removeDupes2('ahmedahmed'));
+
+// --------------------------------------
+function heighestFrequency(arr) {
+    let hash = {};
+    let maxFrequecy = 0;
+    let mostFrequent = arr[0];
+
+    arr.forEach((item) => {
+        if ( hash[item] ) {
+            hash[item]++;
+        }else {
+            hash[item] = 1;
+        }
+        if ( hash[item] > maxFrequecy ) {
+            maxFrequecy = hash[item];
+            mostFrequent = item;
+        }
+    });
+    return mostFrequent;
+}
+
+console.log(heighestFrequency(['abc', 'def','def','def', 'abc', 'abc']));
+
+
+// ----------------------------------
