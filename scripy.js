@@ -13,18 +13,12 @@ Output: Boolean
 function isUnique( str ) {
     let hash = {};
     for ( let i = 0; i < str.length; i++ ) {
-        let char = str[i];
-        if ( hash[char] ) {
-            hash[char]++;
-        }else {
-            hash[char] = 1;
-        }
-    }
+        let currentChar = str[i];
 
-    for (let key in hash ) {
-        if ( hash[key] > 1 ) {
+        if ( hash[currentChar] == true) {
             return false;
         }
+        hash[currentChar] = true;
     }
     return true;
 }
@@ -41,7 +35,32 @@ function isUnique2( str ) {
 
 function isUnique3( str ) {
     let strSet = new Set(str);
-    return true ? str.length == strSet.size(): false;
+    return str.length == strSet.size() ? true : false;
 }
 
-console.log('isUnique: ', isUnique2('something'));
+console.log('isUnique: ', isUnique('something'));
+
+
+//----------------------------------
+function flattenArray(arr) {
+    let flatArray = [];
+
+    function getValue ( item ) {
+        if( !Array.isArray(item) ) {
+            flatArray.push(item);
+        }
+        else {
+            item.forEach((innerItem) => {
+                getValue(innerItem);
+            });
+        }
+    }
+
+    arr.forEach((item) => {
+        getValue(item);
+    });
+
+    return flatArray;
+}
+
+console.log(flattenArray([1,['a', 'b', [55,555,5555, ['aa', 'aaa']]], 3]));
