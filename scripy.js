@@ -63,4 +63,28 @@ function flattenArray(arr) {
     return flatArray;
 }
 
-console.log(flattenArray([1,['a', 'b', [55,555,5555, ['aa', 'aaa']]], 3]));
+console.log('FlatternArray: ', flattenArray([1,['a', 'b', [55,555,5555, ['aa', 'aaa']]], [[['z']]], 3]));
+
+// ----------------------------
+function removeDupes1(str) {
+    let set = new Set(str);
+    let newString = '';
+
+    for ( let value of set ) {
+        newString += value;
+    }
+    return newString;
+}
+
+function removeDupes2(str) {
+    let newString = '';
+
+    for ( let i = 0; i < str.length; i++ ) {
+        if( !newString.includes(str[i]) ) {
+            newString += str[i];
+        }
+    }
+    return newString;
+}
+
+console.log(removeDupes2('ahmedahmed'));
